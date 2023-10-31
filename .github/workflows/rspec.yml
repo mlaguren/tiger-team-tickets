@@ -5,6 +5,9 @@ on: [push]
 jobs:
   run-rspec-tests:
     runs-on: ubuntu-latest
+    env:
+      TOKEN = ${{ env.TOKEN }}
+      JIRA = $ {{ env.JIRA }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
