@@ -1,7 +1,4 @@
 name: Run RSpec tests
-env:
-  TOKEN = ${{ env.TOKEN }}
-  JIRA = ${{ env.JIRA }}
 on: [push]
 jobs:
   run-rspec-tests:
