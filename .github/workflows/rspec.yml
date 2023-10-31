@@ -1,6 +1,12 @@
 name: Run RSpec tests
+env:
+  NAME: 'EcoATM Tiger Team'
 on: [push]
 jobs:
+  build:
+    env:
+      JIRA_URL: ${{JIRA_URL}}
+      TOKEN: ${{TOKEN}}
   run-rspec-tests:
     runs-on: ubuntu-latest
     steps:
