@@ -13,7 +13,7 @@ jobs:
           # runs 'bundle install' and caches installed gems automatically
           bundler-cache: true
       - name: Get Variables
-        run: echo "$JIRA"
+        run: echo "${{ env.JIRA }}"
       - name: Run tests
         run: |
             bundle exec rspec
