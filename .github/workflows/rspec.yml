@@ -2,7 +2,7 @@ name: Run RSpec Tests
 on: [push]
 env:
   JIRA: ${{ vars.JIRA }}
-  TOKEN: ${{ vars.TOKEN }}
+  TOKEN: ${{ secrets.TOKEN }}
 jobs:
   run-rspec-tests:
     runs-on: ubuntu-latest
