@@ -1,5 +1,7 @@
 name: Run RSpec Tests
 on: [push]
+env:
+  JIRA: ${{ vars.JIRA }}
 jobs:
   run-rspec-tests:
     runs-on: ubuntu-latest
@@ -12,9 +14,6 @@ jobs:
           ruby-version: 3.1.4
           # runs 'bundle install' and caches installed gems automatically
           bundler-cache: true
-      - name: Get Variables
-        env:
-          JIRA: ${{ env.JIRA}}
       - name: Run tests
         run: |
             bundle exec rspec
