@@ -1,5 +1,5 @@
 name: Run RSpec Tests
-on: [push]
+on: [push,pull_request]
 env:
   JIRA: ${{ vars.JIRA }}
   TOKEN: ${{ secrets.TOKEN }}

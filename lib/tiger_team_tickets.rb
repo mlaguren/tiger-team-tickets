@@ -7,7 +7,6 @@ class TigerTeamTickets
 
   def initialize (project)
     @project = project
-    puts JIRA_URL
   end
 
   def list_all

@@ -22,11 +22,11 @@ class TigerTeamStatus
     request["Cookie"] = "atlassian.xsrf.token=896d576f67bdde7944eab26bfca691a740385389_lin"
 
     request.body = JSON.dump({
-                               "id": "3006660629",
+                               "id": @page,
                                "status": "current",
                                "title": "Project Triage Page",
                                "body": {
-                                 "value": "#{status_page}",
+                                 "value": "#{@details}",
                                  "representation": "wiki"
                                },
                                "version": {
