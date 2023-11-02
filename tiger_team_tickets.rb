@@ -10,4 +10,4 @@ require_relative 'lib/categorizer'
 
 issues = TigerTeamTickets.new("HTT").list_all
 sorted_data = Categorizer.new(issues).by_status
-TigerTeamStatus.new(2997846053, sorted_data).publish
+puts sorted_data
