@@ -2,7 +2,7 @@
 
 class TigerTeamTickets
 
-  JIRA_URL = ENV['JIRA']
+  JIRA_URL = ENV['ATLASSIAN']
   TOKEN = ENV['TOKEN']
 
   def initialize (project)
