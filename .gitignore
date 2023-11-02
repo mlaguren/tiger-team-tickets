@@ -2,4 +2,5 @@
 .idea/
 .rspec
 *.html
+coverage
 vendor
