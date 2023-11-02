@@ -1,7 +1,7 @@
 name: Run RSpec Tests
 on: [push,pull_request]
 env:
-  JIRA: ${{ vars.JIRA }}
+  ATLASSIAN: ${{ vars.ATLASSIAN }}
   TOKEN: ${{ secrets.TOKEN }}
 jobs:
   run-rspec-tests:
