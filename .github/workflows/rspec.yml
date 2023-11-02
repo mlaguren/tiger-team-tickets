@@ -3,6 +3,7 @@ on: [push,pull_request]
 env:
   ATLASSIAN: ${{ vars.ATLASSIAN }}
   TOKEN: ${{ secrets.TOKEN }}
+  GITHUB_TOKEN: ${{ github.token }}
 jobs:
   run-rspec-tests:
     runs-on: ubuntu-latest
