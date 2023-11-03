@@ -3,7 +3,7 @@
 class TigerTeamTickets
 
   JIRA_URL = ENV['ATLASSIAN']
-  TOKEN = ENV['TOKEN']
+  ATLASSIAN_AUTH = Base64.encode64("#{ENV['ATLASSIAN_EMAIL']}:#{ENV['ATLASSIAN_TOKEN']}").gsub(/\n/, '')
 
   def initialize (project)
     @project = project
@@ -20,7 +20,7 @@ class TigerTeamTickets
       https.use_ssl = true
 
       request = Net::HTTP::Get.new(url)
-      request["Authorization"] = "Basic #{TOKEN}"
+      request["Authorization"] = "Basic #{ATLASSIAN_AUTH}"
       response = https.request(request)
 
       if response.code != "404"

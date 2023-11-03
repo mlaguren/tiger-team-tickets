@@ -1,6 +1,7 @@
 class TigerTeamStatus
+  include Base64
   CONFLUENCE_URL = ENV['ATLASSIAN']
-  TOKEN = ENV['TOKEN']
+  ATLASSIAN_AUTH = Base64.encode64("#{ENV['ATLASSIAN_EMAIL']}:#{ENV['ATLASSIAN_TOKEN']}").gsub(/\n/, '')
 
   def initialize(page, details)
     @page = page
@@ -13,7 +14,7 @@ class TigerTeamStatus
     https.use_ssl = true
 
     request = Net::HTTP::Get.new(@url)
-    request["Authorization"] = "Basic bWVsdmluLmxhZ3VyZW5AZWNvYXRtLmNvbTpBVEFUVDN4RmZHRjBXVWYyN1dNREVqek5ybmp3d2FWOFlHTldrc2R3aE5KZEZDa0F5VnViQTlrZE5IQlpZX1NfLUtUUDFzUGtzYlM4NlNEUXpydFZrcko4dlFiYkQyUWdTRGlXUmVtU3pFaTJsRm5WbW02RVFNSV9MVzZKcGZPUmJEeTB5UXo5VW04YUFHNkdBVjhaZ2NQQWVuTEhaTGEtWks2YW1pUDBfODVJZkJwN2t2REJOMUU9MzJCRjY1N0E="
+    request["Authorization"] = "Basic #{ATLASSIAN_AUTH}"
 
     response = https.request(request)
     json = JSON.parse response.read_body
@@ -50,7 +51,6 @@ class TigerTeamStatus
     new_section+assigned_section+resolved_section+closed_section
   end
   def publish
-
     version = self.current_page_version
     page_details = JSON.dump({ id: @page,
         status: "current",

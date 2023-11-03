@@ -28,7 +28,6 @@ describe Categorizer do
 
   it 'should place a resolved ticket in the resolved section' do
     resolved_section = Categorizer.new(resolved).by_status
-    puts resolved_section
     expect(resolved_section[:resolved].size).to eq 1
   end
 

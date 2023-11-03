@@ -5,4 +5,8 @@ require "uri"
 require "net/http"
 require "json"
 require 'simplecov'
-SimpleCov.start
+require 'base64'
+
+SimpleCov.start do
+  add_filter "spec"
+end
