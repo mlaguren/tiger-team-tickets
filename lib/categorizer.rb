@@ -15,7 +15,7 @@ class Categorizer
     }
 
     @issues.each do | issue |
-      if issue[:link].include? "HTT"
+      if issue[:link].include? "TTTB"
         if issue[:status] == "To Do"
           sections[:new] << issue
         else

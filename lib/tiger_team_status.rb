@@ -66,20 +66,17 @@ class TigerTeamStatus
       }
     )
 
-=begin
        https = Net::HTTP.new(@url.host, @url.port)
        https.use_ssl = true
 
        request = Net::HTTP::Put.new(@url)
        request["Accept"] = "application/json"
        request["Content-Type"] = "application/json"
-       request["Authorization"] = "Basic #{TOKEN}"
-       request["Cookie"] = "atlassian.xsrf.token=896d576f67bdde7944eab26bfca691a740385389_lin"
+       request["Authorization"] = "Basic #{ATLASSIAN_AUTH}"
 
        request.body = page_details
 
        response = https.request(request)
        return response.read_body
-=end
     end
 end
