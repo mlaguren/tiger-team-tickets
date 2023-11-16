@@ -9,9 +9,11 @@ require 'base64'
 require_relative 'lib/tiger_team_tickets'
 require_relative 'lib/categorizer'
 require_relative 'lib/tiger_team_status'
-issues = TigerTeamTickets.new("TTTB").list_all
-sorted_data = Categorizer.new(issues).by_status
 
+project = "HTT"
 
-puts TigerTeamStatus.new(1640431617, sorted_data).publish
+issues = TigerTeamTickets.new(project).list_all
+sorted_data = Categorizer.new(issues, project).by_status
+
+TigerTeamStatus.new(3006660629, sorted_data).publish
 

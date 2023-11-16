@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class Categorizer
-  def initialize(issues)
+  def initialize(issues, project)
     @issues = issues
+    @project = project
   end
 
   def by_status
@@ -15,7 +16,7 @@ class Categorizer
     }
 
     @issues.each do | issue |
-      if issue[:link].include? "TTTB"
+      if issue[:link].include? @project
         if issue[:status] == "To Do"
           sections[:new] << issue
         else
@@ -32,6 +33,6 @@ class Categorizer
         end
       end
     end
-    return sections
+    sections
   end
 end
