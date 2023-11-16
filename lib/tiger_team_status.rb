@@ -54,7 +54,7 @@ class TigerTeamStatus
     version = self.current_page_version
     page_details = JSON.dump({ id: @page,
         status: "current",
-        title: "Project Triage Page",
+        title: "#{ENV['PAGE_TITLE']}",
         body: {
           "value": self.create_page,
           "representation": "wiki"

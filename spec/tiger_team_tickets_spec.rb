@@ -6,12 +6,12 @@ require_all 'lib'
 
 describe TigerTeamTickets do
   it 'should return an array of tickets' do
-    list = TigerTeamTickets.new("TTTB").list_all
+    list = TigerTeamTickets.new(ENV['PROJECT']).list_all
     expect(list.size).to be > 0
   end
 
   it 'should have an element with the correct keys' do
-    list = TigerTeamTickets.new("TTTB").list_all
+    list = TigerTeamTickets.new(ENV['PROJECT']).list_all
     element_keys = list[0].keys
     expect(element_keys).to eq [:link, :summary, :priority, :status]
   end
