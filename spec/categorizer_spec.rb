@@ -3,14 +3,14 @@ require 'require_all'
 require_all 'lib'
 
 describe Categorizer do
-  let(:new_issue) { [{:link=>"https://gazelle.atlassian.net/browse/HTT-2", :summary=>"Web Error", :priority=>"P2", :status=>"To Do"}] }
+  let(:new_issue) { [{:link=>"https://gazelle.atlassian.net/browse/#{ENV['PROJECT']}-2", :summary=>"Web Error", :priority=>"P2", :status=>"To Do"}] }
 
   it 'should place a new ticket in the new section' do
     new_section = Categorizer.new(new_issue,ENV["PROJECT"]).by_status
     expect(new_section[:new].size).to eq 1
   end
 
-  let(:new_closed) { [{:link=>"https://gazelle.atlassian.net/browse/HTT-2", :summary=>"Web Error", :priority=>"P2", :status=>"Won't Fix"}] }
+  let(:new_closed) { [{:link=>"https://gazelle.atlassian.net/browse/#{ENV['PROJECT']}-2", :summary=>"Web Error", :priority=>"P2", :status=>"Won't Fix"}] }
 
   it 'should place a new ticket in the closed section' do
     new_section = Categorizer.new(new_closed,ENV["PROJECT"]).by_status
